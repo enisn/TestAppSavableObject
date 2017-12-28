@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TestAppSavableObject"
+             x:Class="TestAppSavableObject.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding Name,Mode=TwoWay}"/>
+            <Entry Text="{Binding Surname,Mode=TwoWay}"/>
+            <Stepper Value="{Binding Age,Mode=TwoWay}"/>
+            <Switch IsToggled="{Binding IsToggled,Mode=TwoWay}"/>
+
+            <Button Text="Save" Command="{Binding SaveCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
