@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TestAppSavableObject"
+             x:Class="TestAppSavableObject.ListSamplePage"
+             >
+    <ContentPage.BindingContext>
+        <local:ListSamplePageViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <StackLayout>
+            <Entry HorizontalOptions="Fill" Text="{Binding Input,Mode=TwoWay}" Placeholder="Type something to add" />
+            <Button HorizontalOptions="Fill" Text="ADD" Command="{Binding AddCommand}"/>
+        </StackLayout>
+        <ListView
+            ItemsSource="{Binding ListData}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+
+            <!--Built in Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding .}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout>
+            <Button Text="Save" Command="{Binding SaveCommand}"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

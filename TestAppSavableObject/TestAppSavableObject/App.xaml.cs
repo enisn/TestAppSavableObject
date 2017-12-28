@@ -13,7 +13,11 @@ namespace TestAppSavableObject
         {
             InitializeComponent();
 
-            MainPage = new TestAppSavableObject.MainPage();
+            MainPage = new NavigationPage( new TestAppSavableObject.MainPage());
+            (MainPage as NavigationPage).ToolbarItems.Add(new ToolbarItem { Text = "List", Command = new Command(()=> 
+            {
+                MainPage.Navigation.PushAsync(new ListSamplePage());
+            })});
         }
 
         protected override void OnStart()
